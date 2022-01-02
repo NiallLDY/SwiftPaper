@@ -21,24 +21,22 @@ struct DeadLinesRow: View {
                 Text(deadLine.title + " \(deadLine.latestConf.year)")
                     .font(.system(.title, design: .rounded))
                     .bold()
-//                Spacer()
+                //                Spacer()
                 Text(deadLine.description)
                     .lineLimit(2)
                 VStack(alignment: .leading) {
                     Text(LocalizedStringKey(deadLine.sub)).lineLimit(2)
-//                        .padding([.bottom], 0.5)
+                    //                        .padding([.bottom], 0.5)
                 }
                 .font(.caption)
                 .foregroundColor(.secondary)
                 Spacer(minLength: 5)
                 HStack {
                     Image(systemName: "calendar.badge.clock").renderingMode(.original)
-                    if #available(iOS 15.0, *) {
-                        Text(countDown).bold()
-                            .foregroundStyle(self.futureDate > Date() ? LinearGradientColors[deadLine.rank]! : .linearGradient(colors: [.gray], startPoint: .leading, endPoint: .trailing))
-                    } else {
-                        Text(countDown).bold()
-                    }
+                    
+                    Text(countDown).bold()
+                        .foregroundStyle(self.futureDate > Date() ? LinearGradientColors[deadLine.rank]! : .linearGradient(colors: [.gray], startPoint: .leading, endPoint: .trailing))
+                    
                 }
                 .font(.system(.title3, design: .rounded))
             }
